@@ -52,7 +52,7 @@ def callback():
     access_token = response.json().get("access_token")
 
     # Redirect to the frontend with the access token
-    return redirect(f"{FRONTEND_URL}?access_token={access_token}")
+    return redirect(f"{FRONTEND_URL}/post-tweet?access_token={access_token}")
 
 # Define a route for posting tweets
 @app.route("/tweet", methods=["POST"])
