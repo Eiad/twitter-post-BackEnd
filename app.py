@@ -11,8 +11,8 @@ load_dotenv()
 # Twitter API credentials
 TWITTER_CLIENT_ID = os.getenv("TWITTER_CLIENT_ID")
 TWITTER_CLIENT_SECRET = os.getenv("TWITTER_CLIENT_SECRET")
-TWITTER_CALLBACK_URL = os.getenv("TWITTER_CALLBACK_URL")  # Use environment variable
-FRONTEND_URL = os.getenv("FRONTEND_URL")  # Frontend URL to redirect after login
+TWITTER_CALLBACK_URL = os.getenv("TWITTER_CALLBACK_URL") 
+FRONTEND_URL = os.getenv("FRONTEND_URL") 
 
 # Create a Flask app
 app = Flask(__name__)
@@ -31,7 +31,8 @@ def callback():
     if not code:
         return jsonify({"error": "No code provided"}), 400
 
-    # Exchange authorization code for access token
+    
+    # Sending a POST request to the twitter API endpoint with the provided data
     response = requests.post(
         "https://api.twitter.com/2/oauth2/token",
         data={
